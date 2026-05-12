@@ -71,4 +71,22 @@ public class PostAPI {
         PostDetailResponseDTO postDetailResponseDTO = postService.readPostDetail(id);
         return ResponseEntity.status(HttpStatus.OK).body(ApiResponseDTO.of("게시글 조회 성공", postDetailResponseDTO));
     }
+
+    //게시글 삭제
+    @DeleteMapping("/{id}")
+    @Operation(summary = "게시글 삭제 서비스", description = "post아이디로 게시글을 삭제하는 서비스")
+    @ApiResponse(responseCode = "200", description = "게시글 삭제 완료")
+    @ApiResponse(responseCode = "404", description = "게시글 없음")
+    @Parameter(
+            name = "id",
+            description = "게시글 번호",
+            required = true,
+            in = ParameterIn.PATH,
+            example = "1",
+            schema = @Schema(type = "number") // 스키마 타입
+    )
+    public ResponseEntity<ApiResponseDTO> deletePost(@PathVariable Long id) {
+        postService.deletePost(id);
+        return ResponseEntity.status(HttpStatus.OK).body(ApiResponseDTO.of("게시글 삭제 성공"));
+    }
 }

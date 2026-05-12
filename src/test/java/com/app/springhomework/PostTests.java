@@ -19,7 +19,7 @@ class PostTests {
     void postWriteTest() {
         PostWriteRequestDTO postWriteRequestDTO = new PostWriteRequestDTO();
 
-        for(int i = 0; i < 30; i++) {
+        for(int i = 0; i < 40; i++) {
             postWriteRequestDTO.setMemberId(1L);
             postWriteRequestDTO.setPostTitle("Post Title " + i);
             postWriteRequestDTO.setPostContent("Post Content " + i);
@@ -54,5 +54,10 @@ class PostTests {
     @Test
     void postDetailTest() {
         log.info("{}", postService.readPostDetail(40L));
+    }
+
+    @Test
+    void postDeleteTest() {
+        postService.deletePost(39L);
     }
 }

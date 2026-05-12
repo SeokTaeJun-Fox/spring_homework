@@ -15,4 +15,5 @@ public interface PostMapper {
     public List<PostListResponseDTO> selectAll();
     public PostReadResponseDTO selectById(Long id);
     public void updatePostReadCount(Long id);
+    public void delete(Long id);
 }

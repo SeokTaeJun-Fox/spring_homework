@@ -49,7 +49,9 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public void deletePost(long id) {
-
+        //게시글이 삭제되기전에 게시글의 댓글이 먼저 삭제되어야한다. (참조 무결성)
+        replyDAO.deleteById(id);
+        postDAO.deletePost(id);
     }
 
     @Override

@@ -15,6 +15,7 @@
         JOIN TBL_MEMBER TBM
         ON TBR.MEMBER_ID = TBM.ID
         WHERE TBR.POST_ID = #{id}
+        ORDER BY TBR.ID DESC
     </select>
     
     <delete id="deleteByPostId" parameterType="Long">

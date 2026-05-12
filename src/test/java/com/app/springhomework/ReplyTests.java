@@ -22,7 +22,7 @@ class ReplyTests {
         int x = 21;
         int y = 5;
 
-        for(int i = 21; i <= 40; i++) {
+        for(int i = 6; i <= 40; i++) {
             for(int j = 0; j < 5; j++) {
                 ReplyWriteRequestDTO replyWriteRequestDTO = new ReplyWriteRequestDTO();
                 replyWriteRequestDTO.setReplyContent("reply content id: " + i + " num: " + j);

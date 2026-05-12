@@ -20,6 +20,7 @@
         FROM TBL_POST TBP
         JOIN TBL_MEMBER TBM
         ON TBP.MEMBER_ID = TBM.ID
+        ORDER BY TBP.ID DESC
     </select>
 
     <select id="selectById" parameterType="Long" resultType="PostReadResponseDTO">
@@ -36,4 +37,8 @@
         WHERE ID = #{id}
     </update>
 
+    <delete id="delete" parameterType="Long">
+        DELETE FROM TBL_POST
+        WHERE ID = #{id}
+    </delete>
 </mapper>

@@ -36,4 +36,5 @@ public class PostDAO {
         postMapper.updatePostReadCount(id);
     }
 
+    public void deletePost(long id) { postMapper.delete(id); }
 }
