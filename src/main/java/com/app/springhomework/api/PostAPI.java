@@ -1,9 +1,6 @@
 package com.app.springhomework.api;
 
-import com.app.springhomework.domain.dto.ApiResponseDTO;
-import com.app.springhomework.domain.dto.PostListResponseDTO;
-import com.app.springhomework.domain.dto.PostUpdateRequestDTO;
-import com.app.springhomework.domain.dto.PostWriteRequestDTO;
+import com.app.springhomework.domain.dto.*;
 import com.app.springhomework.service.PostService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -55,5 +52,23 @@ public class PostAPI {
     public ResponseEntity<ApiResponseDTO> getPostList() {
         List<PostListResponseDTO> postList = postService.findAllPost();
         return ResponseEntity.status(HttpStatus.OK).body(ApiResponseDTO.of("게시글 목록 조회 성공", postList));
+    }
+
+    //게시글 조회
+    @GetMapping("/{id}")
+    @Operation(summary = "게시글 조회 서비스", description = "게시글 조회해서 게시글을 반환하는 서비스")
+    @ApiResponse(responseCode = "200", description = "게시글 조회 성공")
+    @ApiResponse(responseCode = "404", description = "게시글 조회 실패")
+    @Parameter(
+            name = "id",
+            description = "게시글 번호",
+            required = true,
+            in = ParameterIn.PATH,
+            example = "1",
+            schema = @Schema(type = "number") // 스키마 타입
+    )
+    public ResponseEntity<ApiResponseDTO> getPostInfo(@PathVariable Long id) {
+        PostDetailResponseDTO postDetailResponseDTO = postService.readPostDetail(id);
+        return ResponseEntity.status(HttpStatus.OK).body(ApiResponseDTO.of("게시글 조회 성공", postDetailResponseDTO));
     }
 }

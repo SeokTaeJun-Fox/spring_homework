@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Data
-public class PostListResponseDTO {
+public class PostReadResponseDTO {
     private Long id;
     private String postTitle;
     private String postContent;

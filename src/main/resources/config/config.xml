@@ -15,6 +15,10 @@
        <typeAlias type="com.app.springhomework.domain.dto.PostWriteRequestDTO" alias="PostWriteRequestDTO"></typeAlias>
        <typeAlias type="com.app.springhomework.domain.dto.PostUpdateRequestDTO" alias="PostUpdateRequestDTO"></typeAlias>
        <typeAlias type="com.app.springhomework.domain.dto.PostListResponseDTO" alias="PostListResponseDTO"></typeAlias>
+       <typeAlias type="com.app.springhomework.domain.dto.PostReadResponseDTO" alias="PostReadResponseDTO"></typeAlias>
+
+        <typeAlias type="com.app.springhomework.domain.dto.ReplyWriteRequestDTO" alias="ReplyWriteRequestDTO"></typeAlias>
+        <typeAlias type="com.app.springhomework.domain.dto.ReplyListResponseDTO" alias="ReplyListResponseDTO"></typeAlias>
 
     </typeAliases>
 </configuration>

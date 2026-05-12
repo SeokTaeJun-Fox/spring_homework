@@ -18,10 +18,13 @@ class PostTests {
     @Test
     void postWriteTest() {
         PostWriteRequestDTO postWriteRequestDTO = new PostWriteRequestDTO();
-        postWriteRequestDTO.setMemberId(1L);
-        postWriteRequestDTO.setPostTitle("Post Title");
-        postWriteRequestDTO.setPostContent("Post Content");
-        postService.writePost(postWriteRequestDTO);
+
+        for(int i = 0; i < 30; i++) {
+            postWriteRequestDTO.setMemberId(1L);
+            postWriteRequestDTO.setPostTitle("Post Title " + i);
+            postWriteRequestDTO.setPostContent("Post Content " + i);
+            postService.writePost(postWriteRequestDTO);
+        }
     }
 
     @Test
@@ -36,5 +39,20 @@ class PostTests {
     @Test
     void postFindAllTest() {
         log.info("{}", postService.findAllPost());
+    }
+
+    @Test
+    void postReadTest() {
+        log.info("{}",postService.readPost(40L));
+    }
+
+    @Test
+    void increasePostReadCountTest() {
+        postService.increasePostReadCount(21);
+    }
+
+    @Test
+    void postDetailTest() {
+        log.info("{}", postService.readPostDetail(40L));
     }
 }
